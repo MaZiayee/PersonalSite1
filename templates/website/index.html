@@ -791,7 +791,9 @@
                         <a href="{% url 'blog:blog-details' pid=post.id %}">
                            <img src="{{post.image.url}}" alt="">
                         </a>
-                        <a href="#" class="category">آموزشی</a>
+                        {% for cat in post.category.all %}
+                        <a href="#" class="category">{{cat.name}}</a>
+                        {% endfor %}
                      </div>
 
                      <div class="blog-content">
