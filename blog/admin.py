@@ -6,7 +6,7 @@ from .models import Post
 class PostAdmin(admin.ModelAdmin):
     date_hierarchy = 'published_date'
     empty_value_display = '-empty-'
-    list_display = ('id','title' ,'counted_views','status','published_date','created_date')
-    list_filter = ('status',)
+    list_display = ('id','author','title' ,'counted_views','status','published_date','created_date')
+    list_filter = ['status','author']
     search_fields = ['title','content']
 admin.site.register(Post,PostAdmin)
