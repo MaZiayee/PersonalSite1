@@ -23,7 +23,7 @@ class Post(models.Model):
     published_date = models.DateTimeField(null=True)
     
     class Meta:
-        ordering = ['-created_date']
+        ordering = ['-published_date']
         
     def __str__(self):
         return " {} - {} ".format(self.id,self.title)

@@ -198,14 +198,14 @@
                 <div class="tj-post__content">
                   <div class="tj-post__meta entry-meta">
                     <span><i class="fa-light fa-user"></i> <a href="#">{{ post.author.get_full_name }}</a></span>
-                    <span><i class="fa-light fa-calendar-days"></i> {{ post.updated_date }}</span>
+                    <span><i class="fa-light fa-calendar-days"></i> {{ post.published_date|date:"d/Y/M" }}</span>
                     <span><i class="fa-light fa-magnifying-glass"></i><a href="#">{{ post.counted_views}} بازدید</a></span>
                   </div>
                   <h3 class="tj-post__title entry-title">
                     <a href="{% url 'blog:blog-details' pid=post.id %}">{{ post.title }}</a>
                   </h3>
                   <div class="tj-post__excerpt">
-                    <p>{{ post.content }}</p>
+                    <p>{{ post.content|truncatechars:100 }}</p>
                   </div>
                   <div class="tj-post__btn">
                     <a href="{% url 'blog:blog-details' pid=post.id %}" class="tj-btn-primary">بیشتر</a>

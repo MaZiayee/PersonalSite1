@@ -5,7 +5,7 @@ from blog.models import Post
 # Create your views here.
 
 def home(request):
-    posts = Post.objects.filter(status=1)
+    posts = Post.objects.filter(status=1)[:3]
     context = {'posts':posts}
     return render(request,'website/index.html',context)
 
