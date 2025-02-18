@@ -9,8 +9,8 @@ def blog_home(request):
 
 def blog_details(request,pid):
     post = get_object_or_404(Post,pk=pid,status=1)
-    rposts = Post.objects.filter(status=1)[:3]
-    context = {'post':post, 'rposts':rposts}
+#    rposts = Post.objects.filter(status=1)[:3]
+    context = {'post':post}
     return render(request,'blog/blog-details.html',context)
 
 #def r_post(request):

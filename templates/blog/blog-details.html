@@ -438,34 +438,7 @@
 
                         {% postcategories %}
 
-                     <div class="sidebar_widget tj_recent_posts wow fadeInUp" data-wow-delay=".3s">
-                        <div class="widget_title">
-                           <h3 class="title">Recent post</h3>
-                        </div>
-                        {% for rpost in rposts %}
-                        <ul>
-                           <li>
-                           <li>  
-                              <div class="recent-post_thumb">
-                                 <a href="{% url 'blog:blog-details' pid=rpost.id %}">
-                                    <img src="{{rpost.image.url}}" alt="">
-                                 </a>
-                              </div>
-
-                              <div class="recent-post_content">
-                                 <div class="tj-post__meta entry-meta">
-                                    <span><i class="fa-light fa-calendar-days"></i>{{rpost.published_date|date:"d/Y/M" }}</span>
-                                    <span><i class="fa-light fa-magnifying-glass"></i><a href="#"> {{rpost.counted_views}} </a></span>
-                                 </div>
-                                 <h4 class="recent-post_title">
-                                    <a href="{% url 'blog:blog-details' pid=rpost.id %}">{{rpost.title}}</a>
-                                 </h4>
-                              </div>
-                           </li>
-                           </li>
-                        </ul>
-                        {% endfor %}
-                     </div>
+                        {% recentposts %}
                      
 
                      <div class="sidebar_widget widget_tag_cloud wow fadeInUp" data-wow-delay=".3s">

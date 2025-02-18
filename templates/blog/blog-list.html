@@ -1,4 +1,5 @@
 {% load static%}
+{% load blog_tags %}
 <!DOCTYPE html>
 <html class="no-js" lang="fa" dir="rtl">
 
@@ -237,78 +238,9 @@
                 </div>
               </div>
 
-              <div class="sidebar_widget widget_categories wow fadeInUp" data-wow-delay=".3s">
-                <div class="widget_title">
-                  <h3 class="title">Categories</h3>
-                </div>
+                {% postcategories %}
 
-                <ul>
-                  <li><a href="#">Business</a> (4)</li>
-                  <li><a href="#">Analysis</a> (0)</li>
-                  <li><a href="#">Technology</a> (1)</li>
-                  <li><a href="#">Technology</a> (10)</li>
-                </ul>
-              </div>
-
-              <div class="sidebar_widget tj_recent_posts wow fadeInUp" data-wow-delay=".3s">
-                <div class="widget_title">
-                  <h3 class="title">Recent post</h3>
-                </div>
-
-                <ul>
-                  <li>
-                    <div class="recent-post_thumb">
-                      <a href="blog-details.html">
-                        <img src="{% static 'img/blog/post-thumb-1.jpg' %}" alt="">
-                      </a>
-                    </div>
-
-                    <div class="recent-post_content">
-                      <div class="tj-post__meta entry-meta">
-                        <span><i class="fa-light fa-calendar-days"></i>Jan 2024</span>
-                        <span><i class="fa-light fa-comments"></i><a href="#"> (3)</a></span>
-                      </div>
-                      <h4 class="recent-post_title">
-                        <a href="blog-details.html">Definition and Principles of JIT Logistics</a>
-                      </h4>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="recent-post_thumb">
-                      <a href="blog-details.html">
-                        <img src="{% static 'img/blog/post-thumb-2.jpg' %}" alt="">
-                      </a>
-                    </div>
-
-                    <div class="recent-post_content">
-                      <div class="tj-post__meta entry-meta">
-                        <span><i class="fa-light fa-calendar-days"></i>Jan 2024</span>
-                        <span><i class="fa-light fa-comments"></i><a href="#"> (3)</a></span>
-                      </div>
-                      <h4 class="recent-post_title">
-                        <a href="blog-details.html">Real-world Examples of Successful JIT Logistics</a>
-                      </h4>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="recent-post_thumb">
-                      <a href="blog-details.html">
-                        <img src="{% static 'img/blog/post-thumb-3.jpg' %}" alt="">
-                      </a>
-                    </div>
-
-                    <div class="recent-post_content">
-                      <div class="tj-post__meta entry-meta">
-                        <span><i class="fa-light fa-calendar-days"></i>Jan 2024</span>
-                        <span><i class="fa-light fa-comments"></i><a href="#"> (3)</a></span>
-                      </div>
-                      <h4 class="recent-post_title">
-                        <a href="blog-details.html">Real-world Examples of Successful JIT Logistics</a>
-                      </h4>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+                {% recentposts %}
 
               <div class="sidebar_widget widget_tag_cloud wow fadeInUp" data-wow-delay=".3s">
                 <div class="widget_title">
