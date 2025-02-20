@@ -198,7 +198,7 @@
                 </div>
                 <div class="tj-post__content">
                   <div class="tj-post__meta entry-meta">
-                    <span><i class="fa-light fa-user"></i> <a href="#">{{ post.author.get_full_name }}</a></span>
+                    <span><i class="fa-light fa-user"></i> <a href="{% url 'blog:author' author_username=post.author.username %}">{{ post.author.get_full_name }}</a></span>
                     <span><i class="fa-light fa-calendar-days"></i> {{ post.published_date|date:"d/Y/M" }}</span>
                     <span><i class="fa-light fa-magnifying-glass"></i><a href="#">{{ post.counted_views}} بازدید</a></span>
                   </div>
