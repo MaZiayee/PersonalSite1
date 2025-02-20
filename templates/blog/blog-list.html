@@ -193,7 +193,7 @@
                   </a>
 
                   {% for cat in post.category.all %}
-                  <a href="#" class="category">{{cat.name}}</a>
+                  <a href="{% url 'blog:category' cat_name=cat.name %}" class="category">{{cat.name}}</a>
                   {% endfor %}
                 </div>
                 <div class="tj-post__content">

@@ -17,3 +17,9 @@ def blog_details(request,pid):
  #   rposts = Post.objects.filter(status=1)[:3]
   #  context2 = {'rposts':rposts}
 #    return render(request,'blog/blog-details.html',context2)
+
+def blog_category(request,cat_name):
+    posts = Post.objects.filter(status=1)
+    posts = posts.filter(category__name=cat_name)
+    context = {'posts':posts}
+    return render(request,'blog/blog-list.html',context)
