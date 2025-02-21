@@ -6,6 +6,7 @@ def blog_home(request,**kwargs):
     posts = Post.objects.filter(status=1)
     if kwargs.get('author_username') != None:
         posts = posts.filter(author__username = kwargs['author_username'])
+    
     context = {'posts':posts}
     return render(request,'blog/blog-list.html',context)
 
@@ -23,5 +24,14 @@ def blog_details(request,pid):
 def blog_category(request,cat_name):
     posts = Post.objects.filter(status=1)
     posts = posts.filter(category__name=cat_name)
+    context = {'posts':posts}
+    return render(request,'blog/blog-list.html',context)
+
+def blog_search(request):
+    posts = Post.objects.filter(status=1)
+    if request.method == 'GET':
+        if s := request.GET.get('s'):
+            posts = posts.filter(content__contains=s)
+            
     context = {'posts':posts}
     return render(request,'blog/blog-list.html',context)
