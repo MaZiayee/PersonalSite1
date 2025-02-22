@@ -218,11 +218,21 @@
 
               <div class="tj__pagination wow fadeInUp" data-wow-delay=".3s">
                 <ul>
-                  <li><a class="page-numbers" href="#"><i class="fal fa-arrow-left"></i></a></li>
-                  <li><a class="page-numbers" href="#">1</a></li>
-                  <li><span class="page-numbers current">2</span></li>
-                  <li><a class="page-numbers" href="#">3</a></li>
-                  <li><a class="page-numbers" href="#"><i class="fal fa-arrow-right"></i></a></li>
+                  {% if posts.has_previous %}
+                  <li><a class="page-numbers" href="?page={{ posts.previous_page_number }}"><i class="fal fa-arrow-right"></i></a></li>
+                  {% endif %}
+
+                  {% for i in posts.paginator.page_range %}
+                  {% if posts.number == i %}
+                      <li><span class="page-numbers current">{{i}}</span></li>
+                      {% else %}
+                      <li><a class="page-numbers" href="?page={{i}}">{{i}}</a></li>
+                  {% endif %}
+                  {% endfor %}
+
+                  {% if posts.has_next %}
+                  <li><a class="page-numbers" href="?page={{ posts.next_page_number }}"><i class="fal fa-arrow-left"></i></a></li>
+                  {% endif %}
                 </ul>
               </div>
             </div>
