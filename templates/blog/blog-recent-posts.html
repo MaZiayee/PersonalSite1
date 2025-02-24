@@ -1,15 +1,15 @@
 {% load static %}
 <div class="sidebar_widget tj_recent_posts wow fadeInUp" data-wow-delay=".3s">
     <div class="widget_title">
-      <h3 class="title">Recent post</h3>
+      <h3 class="title">آخرین مطالب وبلاگ</h3>
     </div>
 
     <ul>
       <li>
         {% for post in posts %}
         <div class="recent-post_thumb">
-          <a href="blog-details.html">
-            <img src="{% static 'img/blog/post-thumb-1.jpg' %}" alt="">
+          <a href="{% url 'blog:blog-details' pid=post.id %}">
+            <img src="{{post.image.url}}" alt="">
           </a>
         </div>
 
@@ -19,7 +19,7 @@
             <span><i class="fa-light fa-comments"></i><a href="#"> (3)</a></span>
           </div>
           <h4 class="recent-post_title">
-            <a href="blog-details.html">{{post.title}}</a>
+            <a href="{% url 'blog:blog-details' pid=post.id %}">{{post.title}}</a>
           </h4>
         </div>
         {% endfor %}
