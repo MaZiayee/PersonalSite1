@@ -851,6 +851,11 @@
                                  </div>
                               </div>
                               <div class="col-12">
+                                 <div class="form_group">
+                                    {{form.captcha}}
+                                 </div>
+                              </div>
+                              <div class="col-12">
                                  <div class="form_btn">
                                     <button type="submit" class="btn tj-btn-primary">ارسال پیام</button>
                                  </div>
@@ -905,7 +910,7 @@
          <div class="modal-dialog">
             <div class="modal-content">
                <div class="modal-header">
-                  <span class="modal-title"><strong>پیام شما با موفقیت ارسال شد</strong></span>
+                  <span class="modal-title"><strong></strong></span>
                </div>
                <div class="modal-body">
                   {% for message in messages %}

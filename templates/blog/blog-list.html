@@ -206,7 +206,7 @@
                     <a href="{% url 'blog:blog-details' pid=post.id %}">{{ post.title }}</a>
                   </h3>
                   <div class="tj-post__excerpt">
-                    <p>{{ post.content|truncatechars:100 }}</p>
+                    <p>{{ post.content|truncatechars:100|safe }}</p>
                   </div>
                   <div class="tj-post__btn">
                     <a href="{% url 'blog:blog-details' pid=post.id %}" class="tj-btn-primary">بیشتر</a>

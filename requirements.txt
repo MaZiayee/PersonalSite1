@@ -4,3 +4,7 @@ sqlparse
 tzdata
 
 pillow 
+django-robots
+django-summernote
+django-simple-captcha
+django-multi-captcha-admin
