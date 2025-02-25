@@ -186,7 +186,7 @@
                            <img src="{{post.image.url}}" alt="">
 
                            {% for cat in post.category.all %}
-                           <a href="#" class="category">{{cat.name}}</a>
+                           <a href="{% url 'blog:category' cat_name=cat.name %}" class="category">{{cat.name}}</a>
                            {% endfor %}
                         </div>
 
@@ -213,12 +213,9 @@
                         <div class="tj_tag">
                            <h4 class="tag__title">Tags:</h4>
                            <div class="tagcloud">
-                              <a href="#" rel="tag">Business</a>
-                              <a href="#" rel="tag">Analysis</a>
-                              <a href="#" rel="tag">Technology</a>
-                              <a href="#" rel="tag">Design</a>
-                              <a href="#" rel="tag">Strategy</a>
-                              <a href="#" rel="tag">Tips</a>
+                              {% for t in post.tag.all %}
+                              <a href="#" rel="tag">{{t.name}}</a>
+                              {% endfor %}
                            </div>
                         </div>
                         <div class="share_link">
