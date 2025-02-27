@@ -194,7 +194,7 @@
                            <div class="tj-post__meta entry-meta">
                               <span><i class="fa-light fa-user"></i> <a href="{% url 'blog:author' author_username=post.author.username %}">{{post.author.get_full_name}}</a></span>
                               <span><i class="fa-light fa-calendar-days"></i>{{post.published_date|date:"d/Y/M"}}</span>
-                              <span><i class="fa-light fa-comments"></i><a href="#">نظرات (3)</a></span>
+                              <span><i class="fa-light fa-comments"></i><a href="#">دیدگاه ها ({{comments|length}})</a></span>
                            </div>
                            <h3 class="tj-post__title entry-title">{{post.title}}
                            </h3>
@@ -211,7 +211,7 @@
                      <div class="single-post_tag_share">
                         <!-- post tags -->
                         <div class="tj_tag">
-                           <h4 class="tag__title">Tags:</h4>
+                           <h4 class="tag__title">برچسب ها:</h4>
                            <div class="tagcloud">
                               {% for t in post.tag.all %}
                               <a href="#" rel="tag">{{t.name}}</a>
@@ -269,9 +269,9 @@
                      <div class="tj-comments__container">
                         <div class="tj-comments__wrap">
                            <div class="tj-comment__title">
-                              <h3>3 Comments</h3>
+                              <h3>دیدگاه ها ({{comments|length}})</h3>
                            </div>
-
+                           {% for comment in comments %}
                            <div class="tj-latest__comments">
                               <ul>
                                  <li class="tj__comment">
@@ -281,123 +281,40 @@
                                        </div>
                                        <div class="comment__text">
                                           <div class="avatar__name">
-                                             <h5><a href="">Jane Doe</a></h5>
-                                             <span>January 3, 2024</span>
+                                             <h5><a href="">{{comment.name}}</a></h5>
+                                             <span>{{comment.created_date|date:"d/Y/M"}}</span>
                                           </div>
                                           <p>
-                                             England dotted with a lush, green landscape, rustic villages and throbbing
-                                             with humanity. South Asian
-                                             country that has plenty to offer to visitors with its diverse wildlife.
+                                             {{comment.message}}
                                           </p>
-                                          <div class="comment__reply">
-                                             <a class="comment-reply-link" href="#">Reply</a>
-                                          </div>
-                                       </div>
-                                    </div>
-
-                                    <ul class="children">
-                                       <li class="tj__comment">
-                                          <div class="tj-comment__wrap">
-                                             <div class="comment__avatar">
-                                                <img alt="" src="{% static 'img/blog/user-2.jpg' %}">
-                                             </div>
-                                             <div class="comment__text">
-                                                <div class="avatar__name">
-                                                   <h5><a href=""> Fred Bloggs</a></h5>
-                                                   <span>February 3, 2024</span>
-                                                </div>
-                                                <p>
-                                                   It is a long established fact that a reader will be distracted by the
-                                                   readable content of a page
-                                                   when looking at its layout. The point of using Lorem Ipsum is that it
-                                                   has a more-or-less normal
-                                                   distribution of letters, as opposed to using 'Content here making it
-                                                   look like readable English.
-                                                </p>
-                                                <div class="comment__reply">
-                                                   <a class="comment-reply-link" href="#">Reply</a>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </li>
-
-                                       <li class="tj__comment">
-                                          <div class="tj-comment__wrap">
-                                             <div class="comment__avatar">
-                                                <img alt="" src="{% static 'img/blog/user-3.jpg' %}">
-                                             </div>
-                                             <div class="comment__text">
-                                                <div class="avatar__name">
-                                                   <h5><a href="">Jane Bloggs</a></h5>
-                                                   <span>January 13, 2024</span>
-                                                </div>
-                                                <p>
-                                                   But I must explain to you how all this mistaken idea of denouncing
-                                                   pleasure and praising pain
-                                                   was born and I will give you a complete account
-                                                </p>
-                                                <div class="comment__reply">
-                                                   <a class="comment-reply-link" href="#">Reply</a>
-                                                </div>
-                                             </div>
-                                          </div>
-                                       </li>
-                                    </ul>
-                                 </li>
-                                 <li class="tj__comment">
-                                    <div class="tj-comment__wrap">
-                                       <div class="comment__avatar">
-                                          <img alt="" src="{% static 'img/blog/user-4.jpg' %}">
-                                       </div>
-                                       <div class="comment__text">
-                                          <div class="avatar__name">
-                                             <h5><a href="">Themedemos</a></h5>
-                                             <span>January 20, 2024</span>
-                                          </div>
-                                          <p>
-                                             There are many variations of passages of Lorem Ipsum available, but the
-                                             majority have suffered
-                                             alteration in some form, by injected humour, or randomised words which
-                                             don't look even slightly
-                                             believable. If you are going to use a passage you need to be sure there
-                                             isn't anything embarrassing
-                                             hidden in the middle of text. All the
-                                          </p>
-                                          <div class="comment__reply">
-                                             <a class="comment-reply-link" href="#">Reply</a>
-                                          </div>
                                        </div>
                                     </div>
                                  </li>
                               </ul>
                            </div>
+                           {% empty %}
+                              دیدگاهی ثبت نشده! نفر اول باشید...
+                           {% endfor %}
                         </div>
 
                         <div class="comment-respond">
                            <h3 class="comment-reply-title">
-                              <span class="tj-comment__title">Leave a Reply</span>
+                              <span class="tj-comment__title">ثبت دیدگاه</span>
                            </h3>
 
-                           <form action="index.html" class="tj-post-comment__form">
-                              <p class="comment-notes">
-                                 <span id="email-notes">Your email address will not be published.</span>
-                                 <span class="required-field-message">Required fields are marked <span class="required">*</span></span>
-                              </p>
+                           <form method="post" action='{% url "blog:blog-details" pid=post.id %}' class="tj-post-comment__form">
+                              {% csrf_token %}
+                              <input type="hidden" name="post" value={{post.id}}>
 
                               <div class="row">
                                  <div class="col-md-6">
                                     <div class="form_group">
-                                       <input placeholder="Enter Name" id="author" name="author" type="text" aria-required="true">
+                                       <input placeholder="نام(ضروری)" name="name" type="text" aria-required="true">
                                     </div>
                                  </div>
                                  <div class="col-md-6">
                                     <div class="form_group">
-                                       <input placeholder="Enter Email" id="email" name="email" type="email" aria-required="true">
-                                    </div>
-                                 </div>
-                                 <div class="col-md-12">
-                                    <div class="form_group">
-                                       <input placeholder="Enter Website" id="url" name="url" type="url">
+                                       <input placeholder="ایمیل(ضروری)" name="email" type="email" aria-required="true">
                                     </div>
                                  </div>
                               </div>
@@ -405,18 +322,17 @@
                               <div class="row">
                                  <div class="col-md-12">
                                     <div class="form_group">
-                                       <textarea class="msg-box" placeholder="Enter Your Comments" id="comment" name="comment" cols="45" rows="8"></textarea>
+                                       <textarea class="msg-box" placeholder="متن پیام" name="message" cols="45" rows="8"></textarea>
                                     </div>
                                  </div>
                                  <div class="clearfix"></div>
                               </div>
-
-                              <p class="comment-form-cookies-consent">
-                                 <input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes">
-                                 <label for="wp-comment-cookies-consent">Save my name, email, and website in this
-                                    browser for the next time I comment.</label>
-                              </p>
-                              <button class="tj-btn-primary submit" type="submit">Post Comment</button>
+                              <div class="col-6">
+                                 <div class="form_group">
+                                    {{form.captcha}}
+                                 </div>
+                              </div>
+                              <button class="tj-btn-primary submit" type="submit">ثبت دیدگاه</button>
                            </form>
                         </div>
                      </div>
@@ -458,6 +374,31 @@
       </section>
       <!-- END: Blog Section -->
    </main>
+
+   <!-- BEGIN: Contact Form Success Modal Message -->
+   {% if messages %}
+   <div class="modal contact_modal" tabindex="-1" id="messageModal">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <span class="modal-title"><strong></strong></span>
+            </div>
+            <div class="modal-body">
+               {% for message in messages %}
+                  <p>{{ message }}</p>
+               {% empty %}
+                  <p>No messages</p>
+               {% endfor %}
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn" data-bs-dismiss="modal">بستن</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   {% endif %}
+   <!-- END: Contact Form Success Modal Message -->
+   
 
    <!-- FOOTER AREA START -->
    <footer class="tj-footer-area">
@@ -507,5 +448,16 @@
    <script src="{%static 'js/magnific-popup.js' %}"></script>
    <script src="{%static 'js/main.js' %}"></script>
 </body>
+
+<script>
+   document.addEventListener("DOMContentLoaded", function() {
+       var messageModal = document.getElementById("messageModal");
+       if (messageModal) {
+           var modal = new bootstrap.Modal(messageModal);
+           modal.show();
+       }
+   });
+</script>
+
 
 </html>

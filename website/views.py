@@ -19,7 +19,6 @@ def home(request):
             messages.add_message(request,messages.ERROR,'مشکلی پیش آمده! لطفا مجدد تلاش کنید.')
             return redirect("website:homepage")
     form = ContactForm()
-    print(messages)
 
     context = {'posts':posts, 'form':form}
     return render(request,'website/index.html',context)

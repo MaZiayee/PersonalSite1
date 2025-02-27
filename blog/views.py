@@ -1,6 +1,8 @@
 from django.shortcuts import render,get_object_or_404
-from blog.models import Post
+from blog.models import Post,Comment
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
+from blog.forms import CommentForm
+from django.contrib import messages
 # Create your views here.
 
 def blog_home(request,**kwargs):
@@ -21,10 +23,19 @@ def blog_home(request,**kwargs):
     return render(request,'blog/blog-list.html',context)
 
 def blog_details(request,pid):
-    post = get_object_or_404(Post,pk=pid,status=1)
-#    rposts = Post.objects.filter(status=1)[:3]
-    context = {'post':post}
-    return render(request,'blog/blog-details.html',context)
+        if request.method == 'POST':
+            form = CommentForm(request.POST)
+            if form.is_valid():
+                form.save()
+                messages.add_message(request,messages.SUCCESS,'متشکر از پیام شما.')
+            else:
+                messages.add_message(request,messages.ERROR,'مشکلی پیش آمده! لطفا مجدد تلاش کنید.')
+        form = CommentForm()
+        post = get_object_or_404(Post,pk=pid,status=1)
+        comments = Comment.objects.filter(post=post.id,approved=True).order_by('-created_date')
+        form = CommentForm()
+        context = {'post':post,'comments':comments,'form':form}
+        return render(request,'blog/blog-details.html',context)
 
 #def r_post(request):
  #   rposts = Post.objects.filter(status=1)[:3]
