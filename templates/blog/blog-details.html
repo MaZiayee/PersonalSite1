@@ -10,7 +10,7 @@
    <meta name="description" content="">
 
    <!-- Site Title -->
-   <title>جزئیات وبلاگ جرولد</title>
+   <title>جزئیات وبلاگ </title>
 
    <!-- Place favicon.ico in the root directory -->
    <link rel="apple-touch-icon" href="{% static 'img/favicon.png' %}">
@@ -68,32 +68,30 @@
          <div class="row">
             <div class="col-12 d-flex flex-wrap align-items-center">
                <div class="logo-box">
-                  <a href="index.html">
+                  <a href="{% url 'website:homepage' %}">
                      <img src="{% static 'img/logo/logo.png' %}" alt="">
                   </a>
                </div>
 
                <div class="header-info-list d-none d-md-inline-block">
                   <ul class="ul-reset">
-                     <li><a href="mailto:mail@gerolddesign.com">Gerold@gmail.com</a></li>
+                     <li><a href="mailto:maziayee@gerolddesign.com">maziayee@gmail.com</a></li>
                   </ul>
                </div>
 
                <div class="header-menu">
                   <nav>
                      <ul>
-                        <li><a href="#services-section">خدمات</a></li>
-                        <li><a href="#works-section">نمونه کار</a></li>
-                        <li><a href="#resume-section">رزومه</a></li>
-                        <li><a href="#skills-section">مهارت ها</a></li>
-                        <li><a href="#testimonials-section">گواهینامه ها</a></li>
-                        <li><a href="#contact-section">تماس با ما</a></li>
+                        <li><a href="{% url 'website:homepage' %}#services-section">خدمات</a></li>
+                        <li><a href="{% url 'website:homepage' %}#skills-section">مهارت ها</a></li>
+                        <li><a href="{% url 'website:homepage' %}#resume-section">رزومه</a></li>
+                        <li><a href="{% url 'website:homepage' %}#blog-section">وبلاگ</a></li>
                      </ul>
                   </nav>
                </div>
 
                <div class="header-button">
-                  <a href="#" class="btn tj-btn-primary">تماس با من</a>
+                  <a href="{% url 'website:homepage' %}#contact-section" class="btn tj-btn-primary">همکاری با من</a>
                </div>
 
                <div class="menu-bar d-lg-none">
@@ -120,25 +118,22 @@
 
                <div class="header-info-list d-none d-md-inline-block">
                   <ul class="ul-reset">
-                     <li><a href="mailto:mail@gerolddesign.com">Gerold@gmail.com</a></li>
+                     <li><a href="mailto:maziayee@gerolddesign.com">maziayee@gmail.com</a></li>
                   </ul>
                </div>
 
                <div class="header-menu">
                   <nav>
                      <ul>
-                        <li><a href="#services-section">خدمات</a></li>
-                        <li><a href="#works-section">نمونه کار</a></li>
-                        <li><a href="#resume-section">رزومه</a></li>
-                        <li><a href="#skills-section">مهارت ها</a></li>
-                        <li><a href="#testimonials-section">گواهینامه ها</a></li>
-                        <li><a href="#contact-section">تماس با ما</a></li>
-                     </ul>
+                        <li><a href="{% url 'website:homepage' %}#services-section">خدمات</a></li>
+                        <li><a href="{% url 'website:homepage' %}#skills-section">مهارت ها</a></li>
+                        <li><a href="{% url 'website:homepage' %}#resume-section">رزومه</a></li>
+                        <li><a href="{% url 'website:homepage' %}#blog-section">وبلاگ</a></li>
                   </nav>
                </div>
 
                <div class="header-button">
-                  <a href="#" class="btn tj-btn-primary">تماس با من</a>
+                  <a href="{% url 'website:homepage' %}#contact-section" class="btn tj-btn-primary">همکاری با من</a>
                </div>
 
                <div class="menu-bar d-lg-none">
@@ -164,9 +159,9 @@
                   <div class="breadcrumb_content d-flex flex-column align-items-center">
                      <h2 class="title wow fadeInUp" data-wow-delay=".3s">{{post.title}}</h2>
                      <div class="breadcrumb_navigation wow fadeInUp" data-wow-delay=".5s">
-                        <span><a href="index.html">خانه</a></span>
+                        <span><a href="{% url 'website:homepage' %}">خانه</a></span>
                         <i class="far fa-long-arrow-left"></i>
-                        <span class="current-item">وبلاگ</span>
+                        <span><a href="{% url 'blog:blog-home' %}">وبلاگ</a></span>
                      </div>
                   </div>
                </div>
@@ -214,15 +209,15 @@
                            <h4 class="tag__title">برچسب ها:</h4>
                            <div class="tagcloud">
                               {% for t in post.tag.all %}
-                              <a href="#" rel="tag">{{t.name}}</a>
+                              <a rel="tag">{{t.name}}</a>
                               {% endfor %}
                            </div>
                         </div>
                         <div class="share_link">
-                           <a href="#" target="_blank" class="facebook" title="Share this on Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-                           <a href="#" class="twitter" title="Share this on Twitter" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-                           <a href="#" class="linkedin" title="Share this on Linkedin" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-                           <a href="#" class="pinterest" title="Pin this Post" target="_blank"><i class="fa-brands fa-pinterest-p"></i></a>
+                           <a href="whatsapp://send?text=Check+this+out:+{{ request.build_absolute_uri }}" target="_blank" class="whatsapp" title="Share this on whatsapp"><i class="fa-brands fa-whatsapp"></i></a>
+                           <a href="https://twitter.com/intent/tweet?url={{ request.build_absolute_uri }}&text=Check+this+out!" class="twitter" title="Share this on Twitter" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                           <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ request.build_absolute_uri }}&text=Check+this+out!" class="linkedin" title="Share this on Linkedin" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                           <a href="https://t.me/share/url?url={{ request.build_absolute_uri }}&text=Check+this+out!" class="telegram" title="Share this on Telegram" target="_blank"><i class="fa-brands fa-telegram"></i></a>
                         </div>
                      </div>
 

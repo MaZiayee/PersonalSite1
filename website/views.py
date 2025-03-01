@@ -4,6 +4,9 @@ from blog.models import Post
 from website.models import Contact
 from website.forms import ContactForm
 from django.contrib import messages
+from django.http import FileResponse
+import os
+from django.conf import settings
 
 # Create your views here.
 
@@ -23,4 +26,8 @@ def home(request):
     context = {'posts':posts, 'form':form}
     return render(request,'website/index.html',context)
 
+
+def download_pdf(request):
+    file_path = os.path.join(settings.MEDIA_ROOT, 'pdfs', 'ziayee.pdf')  # Adjust the path
+    return FileResponse(open(file_path, 'rb'), as_attachment=True, filename='ziayee.pdf')
 
