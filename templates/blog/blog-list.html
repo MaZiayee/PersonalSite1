@@ -70,32 +70,30 @@
         <div class="col-12 d-flex flex-wrap align-items-center">
 
           <div class="logo-box">
-            <a href="index.html">
+            <a href="{% url 'website:homepage' %}">
               <img src="{% static 'img/logo/logo.png' %}" alt="">
             </a>
           </div>
 
           <div class="header-info-list d-none d-md-inline-block">
             <ul class="ul-reset">
-              <li><a href="mailto:mail@gerolddesign.com">mail@gerolddesign.com</a></li>
+              <li><a href="mailto:maziayee@gmail.com">maziayee@gmail.com</a></li>
             </ul>
           </div>
 
           <div class="header-menu">
             <nav>
               <ul>
-                <li><a href="#services-section">خدمات</a></li>
-                <li><a href="#works-section">نمونه کار</a></li>
-                <li><a href="#resume-section">رزومه</a></li>
-                <li><a href="#skills-section">مهارت ها</a></li>
-                <li><a href="#testimonials-section">وبلاگ</a></li>
-                <li><a href="#contact-section">همکاری با من</a></li>
+                <li><a href="{% url 'website:homepage' %}#services-section">خدمات</a></li>
+                <li><a href="{% url 'website:homepage' %}#skills-section">مهارت ها</a></li>
+                <li><a href="{% url 'website:homepage' %}#resume-section">رزومه</a></li>
+                <li><a href="{% url 'website:homepage' %}#blog-section">وبلاگ</a></li>
               </ul>
             </nav>
           </div>
 
           <div class="header-button">
-            <a href="#" class="btn tj-btn-primary">تماس با من</a>
+            <a href="{% url 'website:homepage' %}#contact-section" class="btn tj-btn-primary">همکاری با من</a>
           </div>
 
           <div class="menu-bar d-lg-none">
@@ -116,32 +114,30 @@
         <div class="col-12 d-flex flex-wrap align-items-center">
 
           <div class="logo-box">
-            <a href="index.html">
+            <a href="{% url 'website:homepage' %}">
               <img src="{% static 'img/logo/logo.png' %}" alt="">
             </a>
           </div>
 
           <div class="header-info-list d-none d-md-inline-block">
             <ul class="ul-reset">
-              <li><a href="mailto:mail@gerolddesign.com">mail@gerolddesign.com</a></li>
+              <li><a href="mailto:maziayee@gmail.com">maziayee@gmail.com</a></li>
             </ul>
           </div>
 
           <div class="header-menu">
             <nav>
               <ul>
-                <li><a href="#services-section">خدمات</a></li>
-                <li><a href="#works-section">نمونه کار</a></li>
-                <li><a href="#resume-section">رزومه</a></li>
-                <li><a href="#skills-section">مهارت ها</a></li>
-                <li><a href="#testimonials-section">وبلاگ</a></li>
-                <li><a href="#contact-section">همکاری با من</a></li>
+                <li><a href="{% url 'website:homepage' %}#services-section">خدمات</a></li>
+                <li><a href="{% url 'website:homepage' %}#skills-section">مهارت ها</a></li>
+                <li><a href="{% url 'website:homepage' %}#resume-section">رزومه</a></li>
+                <li><a href="{% url 'website:homepage' %}#blog-section">وبلاگ</a></li>
               </ul>
             </nav>
           </div>
 
           <div class="header-button">
-            <a href="#" class="btn tj-btn-primary">تماس با من</a>
+            <a href="{% url 'website:homepage' %}#contact-section" class="btn tj-btn-primary">همکاری با من</a>
           </div>
 
           <div class="menu-bar d-lg-none">
@@ -168,9 +164,7 @@
             <div class="breadcrumb_content d-flex flex-column align-items-center">
               <h2 class="title wow fadeInUp" data-wow-delay=".3s">وبلاگ</h2>
               <div class="breadcrumb_navigation wow fadeInUp" data-wow-delay=".5s">
-                <span><a href="index.html">خانه</a></span>
-                <i class="far fa-long-arrow-right"></i>
-                <span class="current-item">وبلاگ</span>
+                <span><a href="{% url 'website:homepage' %}">خانه</a></span>
               </div>
             </div>
           </div>
@@ -242,7 +236,7 @@
               <div class="sidebar_widget widget_search wow fadeInUp" data-wow-delay=".3s">
                 <div class="tj-widget__search form_group">
                   <form class="search-form" action="{% url 'blog:search' %}" method="get">
-                    <input type="search" id="search" name="s" placeholder="Search...">
+                    <input type="search" id="search" name="s" placeholder="جست و جو...">
                     <button class="search-btn" type="submit"> <i class="fa-light fa-magnifying-glass"></i> </button>
                   </form>
                 </div>
@@ -252,6 +246,7 @@
 
                 {% recentposts %}
 
+              <!-- 
               <div class="sidebar_widget widget_tag_cloud wow fadeInUp" data-wow-delay=".3s">
                 <div class="widget_title">
                   <h3 class="title">Popular tag</h3>
@@ -265,6 +260,7 @@
                   <a href="#">Design</a>
                 </div>
               </div>
+              -->
             </div>
           </div>
         </div>
@@ -281,20 +277,8 @@
           <div class="footer-logo-box">
             <a href="#"><img src="{% static 'img/logo/logo.png' %}" alt=""></a>
           </div>
-          <div class="footer-menu">
-            <nav>
-              <ul>
-                <li><a href="#services-section">Services</a></li>
-                <li><a href="#works-section">Works</a></li>
-                <li><a href="#resume-section">Resume</a></li>
-                <li><a href="#skills-section">Skills</a></li>
-                <li><a href="#testimonials-section">Testimonials</a></li>
-                <li><a href="#contact-section">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
           <div class="copy-text">
-            <p>&copy; 2024 All rights reserved by <a href="#" target="_blank">ThemeJunction</a></p>
+            <p>&copy; تمامی حقوق این سایت محفوظ می باشد.</p>
           </div>
         </div>
       </div>

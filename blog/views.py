@@ -34,7 +34,9 @@ def blog_details(request,pid):
         post = get_object_or_404(Post,pk=pid,status=1)
         comments = Comment.objects.filter(post=post.id,approved=True).order_by('-created_date')
         form = CommentForm()
-        context = {'post':post,'comments':comments,'form':form}
+        previous_post = Post.objects.filter(id__lt=post.id,status=1).order_by('-id').first()
+        next_post = Post.objects.filter(id__gt=post.id,status=1).order_by('id').first()
+        context = {'post':post,'comments':comments,'form':form, 'previous_post': previous_post, 'next_post': next_post}
         return render(request,'blog/blog-details.html',context)
 
 #def r_post(request):
