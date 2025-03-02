@@ -183,7 +183,7 @@
                 {% for post in posts %}
                 <div class="tj-post__thumb">
                   <a href="{% url 'blog:blog-details' pid=post.id %}">
-                    <img src="{{post.image.url}}" alt="">
+                    <img src="{{post.bannerimage.url}}" alt="">
                   </a>
 
                   {% for cat in post.category.all %}

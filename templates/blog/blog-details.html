@@ -178,7 +178,7 @@
                   <div class="tj-post-details__container">
                      <article class="tj-single__post">
                         <div class="tj-post__thumb">
-                           <img src="{{post.image.url}}" alt="">
+                           <img src="{{post.bannerimage.url}}" alt="">
 
                            {% for cat in post.category.all %}
                            <a href="{% url 'blog:category' cat_name=cat.name %}" class="category">{{cat.name}}</a>
