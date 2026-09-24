@@ -1,7 +1,7 @@
 ﻿{% load static %}
 {% load blog_tags %}
 <!DOCTYPE html>
-<html class="no-js" lang="fa" dir="rtl">
+<html class="no-js" lang="en" dir="ltr">
 
 <head>
    <meta charset="utf-8">
@@ -10,7 +10,7 @@
    <meta name="description" content="">
 
    <!-- Site Title -->
-   <title>جزئیات وبلاگ </title>
+   <title>Blog Details</title>
 
    <!-- Place favicon.ico in the root directory -->
    <link rel="apple-touch-icon" href="{% static 'img/favicon.png' %}">
@@ -41,14 +41,13 @@
 
       <div class="preloader-heading">
          <div class="load-text">
-            <span>ب</span>
-            <span>ا</span>
-            <span>ر</span>
-            <span>گ</span>
-            <span>ذ</span>
-            <span>ا</span>
-            <span>ر</span>
-            <span>ی</span>
+            <span>L</span>
+            <span>o</span>
+            <span>a</span>
+            <span>d</span>
+            <span>i</span>
+            <span>n</span>
+            <span>g</span>
          </div>
       </div>
    </div>
@@ -82,16 +81,16 @@
                <div class="header-menu">
                   <nav>
                      <ul>
-                        <li><a href="{% url 'website:homepage' %}#services-section">خدمات</a></li>
-                        <li><a href="{% url 'website:homepage' %}#skills-section">مهارت ها</a></li>
-                        <li><a href="{% url 'website:homepage' %}#resume-section">رزومه</a></li>
-                        <li><a href="{% url 'website:homepage' %}#blog-section">وبلاگ</a></li>
+                        <li><a href="{% url 'website:homepage' %}#services-section">Services</a></li>
+                        <li><a href="{% url 'website:homepage' %}#skills-section">Skills</a></li>
+                        <li><a href="{% url 'website:homepage' %}#resume-section">Resume</a></li>
+                        <li><a href="{% url 'website:homepage' %}#blog-section">Blog</a></li>
                      </ul>
                   </nav>
                </div>
 
                <div class="header-button">
-                  <a href="{% url 'website:homepage' %}#contact-section" class="btn tj-btn-primary">همکاری با من</a>
+                  <a href="{% url 'website:homepage' %}#contact-section" class="btn tj-btn-primary">Hire Me</a>
                </div>
 
                <div class="menu-bar d-lg-none">
@@ -125,15 +124,15 @@
                <div class="header-menu">
                   <nav>
                      <ul>
-                        <li><a href="{% url 'website:homepage' %}#services-section">خدمات</a></li>
-                        <li><a href="{% url 'website:homepage' %}#skills-section">مهارت ها</a></li>
-                        <li><a href="{% url 'website:homepage' %}#resume-section">رزومه</a></li>
-                        <li><a href="{% url 'website:homepage' %}#blog-section">وبلاگ</a></li>
+                        <li><a href="{% url 'website:homepage' %}#services-section">Services</a></li>
+                        <li><a href="{% url 'website:homepage' %}#skills-section">Skills</a></li>
+                        <li><a href="{% url 'website:homepage' %}#resume-section">Resume</a></li>
+                        <li><a href="{% url 'website:homepage' %}#blog-section">Blog</a></li>
                   </nav>
                </div>
 
                <div class="header-button">
-                  <a href="{% url 'website:homepage' %}#contact-section" class="btn tj-btn-primary">همکاری با من</a>
+                  <a href="{% url 'website:homepage' %}#contact-section" class="btn tj-btn-primary">Hire Me</a>
                </div>
 
                <div class="menu-bar d-lg-none">
@@ -159,9 +158,9 @@
                   <div class="breadcrumb_content d-flex flex-column align-items-center">
                      <h2 class="title wow fadeInUp" data-wow-delay=".3s">{{post.title}}</h2>
                      <div class="breadcrumb_navigation wow fadeInUp" data-wow-delay=".5s">
-                        <span><a href="{% url 'website:homepage' %}">خانه</a></span>
-                        <i class="far fa-long-arrow-left"></i>
-                        <span><a href="{% url 'blog:blog-home' %}">وبلاگ</a></span>
+                        <span><a href="{% url 'website:homepage' %}">Home</a></span>
+                        <i class="far fa-long-arrow-right"></i>
+                        <span><a href="{% url 'blog:blog-home' %}">Blog</a></span>
                      </div>
                   </div>
                </div>
@@ -189,7 +188,7 @@
                            <div class="tj-post__meta entry-meta">
                               <span><i class="fa-light fa-user"></i> <a href="{% url 'blog:author' author_username=post.author.username %}">{{post.author.get_full_name}}</a></span>
                               <span><i class="fa-light fa-calendar-days"></i>{{post.published_date|date:"d/Y/M"}}</span>
-                              <span><i class="fa-light fa-comments"></i><a href="#comments-section">دیدگاه ({{comments|length}})</a></span>
+                              <span><i class="fa-light fa-comments"></i><a href="#comments-section">Comments ({{comments|length}})</a></span>
                            </div>
                            <h3 class="tj-post__title entry-title">{{post.title}}
                            </h3>
@@ -206,7 +205,7 @@
                      <div class="single-post_tag_share">
                         <!-- post tags -->
                         <div class="tj_tag">
-                           <h4 class="tag__title">برچسب ها:</h4>
+                           <h4 class="tag__title">Tags:</h4>
                            <div class="tagcloud">
                               {% for t in post.tag.all %}
                               <a rel="tag">{{t.name}}</a>
@@ -231,7 +230,7 @@
                                  <a href="{{ previous_post.get_absolute_url }}"> <img src="{{ previous_post.image.url }}" alt="{{ previous_post.title }}"> </a>
                               </div>
                               <div class="tj-content">
-                                 <div class="post_pagination_nav"><i class="fa-regular fa-angle-double-right"></i> پست قبل </div>
+                                 <div class="post_pagination_nav"><i class="fa-regular fa-angle-double-left"></i> Previous Post </div>
                                  <div class="post_pagination_title">
                                     <h5 class="title">
                                        <a href="{{ previous_post.get_absolute_url }}">{{ previous_post.title }}</a>
@@ -247,7 +246,7 @@
                         <div class="tj-navigation_post next">
                            <div class="tj-navigation-post_inner next_post">
                               <div class="tj-content">
-                                 <div class="post_pagination_nav">پست بعدی<i class="fa-regular fa-angle-double-left"></i>
+                                 <div class="post_pagination_nav">Next Post<i class="fa-regular fa-angle-double-right"></i>
                                  </div>
                                  <div class="post_pagination_title">
                                     <h5 class="title">
@@ -268,7 +267,7 @@
                      <div class="tj-comments__container">
                         <div class="tj-comments__wrap">
                            <div class="tj-comment__title">
-                              <h3>دیدگاه ها ({{comments|length}})</h3>
+                              <h3>Comments ({{comments|length}})</h3>
                            </div>
                            {% for comment in comments %}
                            <div class="tj-latest__comments">
@@ -292,13 +291,13 @@
                               </ul>
                            </div>
                            {% empty %}
-                              دیدگاهی ثبت نشده! نفر اول باشید...
+                              No comments yet! Be the first...
                            {% endfor %}
                         </div>
 
                         <div class="comment-respond">
                            <h3 class="comment-reply-title">
-                              <span class="tj-comment__title">ثبت دیدگاه</span>
+                              <span class="tj-comment__title">Leave a Comment</span>
                            </h3>
 
                            <form method="post" action='{% url "blog:blog-details" pid=post.id %}' class="tj-post-comment__form">
@@ -308,12 +307,12 @@
                               <div class="row">
                                  <div class="col-md-6">
                                     <div class="form_group">
-                                       <input placeholder="نام(ضروری)" name="name" type="text" aria-required="true">
+                                       <input placeholder="Name (Required)" name="name" type="text" aria-required="true">
                                     </div>
                                  </div>
                                  <div class="col-md-6">
                                     <div class="form_group">
-                                       <input placeholder="ایمیل(ضروری)" name="email" type="email" aria-required="true">
+                                       <input placeholder="Email (Required)" name="email" type="email" aria-required="true">
                                     </div>
                                  </div>
                               </div>
@@ -321,7 +320,7 @@
                               <div class="row">
                                  <div class="col-md-12">
                                     <div class="form_group">
-                                       <textarea class="msg-box" placeholder="متن پیام" name="message" cols="45" rows="8"></textarea>
+                                       <textarea class="msg-box" placeholder="Message" name="message" cols="45" rows="8"></textarea>
                                     </div>
                                  </div>
                                  <div class="clearfix"></div>
@@ -331,7 +330,7 @@
                                     {{form.captcha}}
                                  </div>
                               </div>
-                              <button class="tj-btn-primary submit" type="submit">ثبت دیدگاه</button>
+                              <button class="tj-btn-primary submit" type="submit">Submit Comment</button>
                            </form>
                         </div>
                      </div>
@@ -343,7 +342,7 @@
                      <div class="sidebar_widget widget_search wow fadeInUp" data-wow-delay=".3s">
                         <div class="tj-widget__search form_group">
                            <form class="search-form" action="{% url 'blog:search' %}" method="get">
-                              <input type="search" id="search" name="s" placeholder="جست و جو...">
+                              <input type="search" id="search" name="s" placeholder="Search...">
                               <button class="search-btn" type="submit"><i class="fa-light fa-magnifying-glass"></i></button>
                            </form>
                         </div>
@@ -353,21 +352,6 @@
 
                         {% recentposts %}
                      
-                     <!--
-                     <div class="sidebar_widget widget_tag_cloud wow fadeInUp" data-wow-delay=".3s">
-                        <div class="widget_title">
-                           <h3 class="title">Popular tag</h3>
-                        </div>
-
-                        <div class="tagcloud">
-                           <a href="#">Business</a>
-                           <a href="#">Analysis</a>
-                           <a href="#">Technology</a>
-                           <a href="#">Finance</a>
-                           <a href="#">Design</a>
-                        </div>
-                     </div>
-                      -->
                   </div>
                </div>
             </div>
@@ -392,7 +376,7 @@
                {% endfor %}
             </div>
             <div class="modal-footer">
-               <button type="button" class="btn" data-bs-dismiss="modal">بستن</button>
+               <button type="button" class="btn" data-bs-dismiss="modal">Close</button>
             </div>
          </div>
       </div>
@@ -410,7 +394,7 @@
                   <a href="#"><img src="{% static 'img/logo/logo.png' %}" alt=""></a>
                </div>
                <div class="copy-text">
-                  <p>&copy; تمامی حقوق این سایت محفوظ می باشد.</p>
+                  <p>&copy; All rights reserved.</p>
                </div>
             </div>
          </div>
@@ -447,6 +431,5 @@
        }
    });
 </script>
-
 
 </html>

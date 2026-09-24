@@ -17,7 +17,9 @@
 	.tj-header-area .header-menu ul {
 		gap: 30px;
 	}
-
+	.tj-header-area .header-menu ul li a {
+		padding: 25px 0px;
+	}
 	/* hero section */
 	.hero-title {
 		font-size: 60px;
@@ -46,7 +48,6 @@
 		padding-top: 100px;
 		padding-bottom: 100px;
 	}
-
 	.tj-header-area {
 		padding: 30px 0 15px;
 	}
@@ -59,7 +60,12 @@
 	.tj-header-area .header-menu ul {
 		gap: 20px;
 	}
-
+	.tj-header-area .header-menu ul li a {
+		padding: 25px 0px;
+	}
+	.tj-header-area .header-info-list ul li {
+		margin-right: 0px;
+	}
 	/* hero section */
 	.hero-section {
 		padding: 160px 0 50px;
@@ -167,6 +173,10 @@
 		.title {
 		font-size: 16px;
 	}
+	.tj-btn-primary-2 {
+		gap: 5px;
+		padding: 16px 15px;
+	}
 }
 
 /* Tablet Devices */
@@ -196,7 +206,6 @@
 	.section-header .section-title {
 		font-size: 35px;
 	}
-
 	.tj-header-area {
 		padding: 20px 0 15px;
 	}
@@ -483,7 +492,7 @@
 /* Mobile Devices */
 @media only screen and (max-width: 767px) {
 	.progress-wrap {
-		left: 20px;
+		right: 20px;
 		bottom: 20px;
 	}
 	h1 {
@@ -518,6 +527,9 @@
 
 	.tj-header-area {
 		padding: 20px 0 15px;
+	}
+	.tj-header-area .header-menu ul > li > ul.sub-menu > li > a {
+		padding: 18px 20px;
 	}
 	.tj-header-area .logo-box {
 		margin-right: 15px;
@@ -563,6 +575,9 @@
 	}
 	.tj-header-area .header-menu ul li a::before {
 		display: none;
+	}
+	.tj-header-area .mobile-menu ul {
+		max-width: 90%;
 	}
 
 	/* hero section */
@@ -715,7 +730,7 @@
 	}
 	.portfolio-box .portfolio-item .content-box i {
 		font-size: 15px;
-		left: 15px;
+		right: 15px;
 	}
 	.popup_modal_content .portfolio_info {
 		padding: 0 15px;
@@ -772,11 +787,8 @@
 	.resume-section .col-md-6:last-child .section-header {
 		margin-top: 30px;
 	}
-	.section-header .section-title {
-		font-size: 30px;
-	}
 	.resume-section .resume-item {
-		margin-left: 0;
+		margin-right: 0;
 		padding: 20px 15px;
 	}
 	.resume-widget .resume-item .time {
@@ -837,15 +849,7 @@
 		margin-top: 50px;
 	}
 	.contact-info-list li {
-		padding-right: 65px;
-	}
-	.contact-info-list .icon-box{
-
-		right: 0;
-	}
-	.tj-nice-select::after {
-right: 280px;
-
+		padding-left: 65px;
 	}
 	.contact-info-list .text-box a {
 		font-size: 18px;
