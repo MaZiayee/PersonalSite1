@@ -1,0 +1,7 @@
+{
+  "platform": "django",
+  "port": 8000,
+  "django": {
+    "timezone": "Asia/Tehran"
+  }
+}
