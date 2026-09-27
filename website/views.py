@@ -27,7 +27,5 @@ def home(request):
     return render(request,'website/index.html',context)
 
 
-def download_pdf(request):
-    file_path = os.path.join(settings.MEDIA_ROOT, 'pdfs', 'ziayee.pdf')  # Adjust the path
-    return FileResponse(open(file_path, 'rb'), as_attachment=True, filename='ziayee.pdf')
+
 
