@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'default-unsafe-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['maziayee.ir', '.liara.run', 'localhost']
+ALLOWED_HOSTS = ['maziayee.ir', 'www.maziayee.ir', '.liara.run', 'localhost']
 
 
 # Application definition
@@ -183,3 +183,11 @@ AWS_S3_ENDPOINT_URL = os.environ.get('AWS_S3_ENDPOINT_URL')
 
 if AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY:
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://maziayee.ir',
+    'https://www.maziayee.ir',
+    'http://maziayee.ir',
+    'http://www.maziayee.ir',
+]
