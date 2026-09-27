@@ -39,16 +39,17 @@ def home(request):
             messages.success(request, 'متشکر از پیام شما! بزودی با شما تماس خواهم گرفت.')
             return redirect("website:homepage")
         else:
-            # اینجا فرم خطا دارد، یک پیام کلی می‌دهیم اما ریدایرکت نمی‌کنیم!
+            # فرم نامعتبر است! اینجا هیچ ریدایرکتی انجام نمی‌دهیم.
+            # متغیر form در اینجا حاوی خطاهای فیلدهاست.
+            print("FORM ERRORS:", form.errors)
             messages.error(request, 'مشکلی در فرم وجود دارد! لطفاً خطاها را بررسی کنید.')
-            # چون ریدایرکت نکردیم، متغیر form (که الان حاوی ارورهاست) به بخش context در پایین پاس داده می‌شود
     else:
-        # اگر کاربر تازه وارد صفحه شده بود (درخواست GET) یک فرم خام و خالی می‌سازیم
+        # فقط وقتی درخواست GET است (کاربر تازه وارد سایت شده) فرم خالی می‌سازیم
         form = ContactForm()
 
+    # این کانتکست در هر دو حالت (خطای POST یا ورود اولیه GET) کار می‌کند
     context = {'posts': posts, 'form': form}
     return render(request, 'website/index.html', context)
-
 
 
 
